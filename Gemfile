@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.4.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.0'
+gem 'rails', '~> 5.2.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
@@ -19,7 +19,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-#gem 'turbolinks', '~> 5'
+# gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
@@ -34,25 +34,21 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.1.0', require: false 
+gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'devise'
 gem 'rails-i18n', '~> 5.1'
 gem 'tty-spinner'
-gem 'therubyracer'
-gem 'execjs'
 gem 'faker'
 gem 'kaminari'
 gem 'kaminari-i18n'
 gem "cocoon"
-
+gem "font-awesome-rails"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'rails_db', '2.3'
-
- 
+  gem 'rails_db', '2.0.4'
 end
 
 group :development do
@@ -63,24 +59,25 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'awesome_print'
-  gem 'capistrano', '~> 3.11', require: false
+  gem "capistrano", "~> 3.11", require: false
   gem 'capistrano-rvm'
   gem 'capistrano-bundler', '~> 1.5'
-  gem 'capistrano-rails', '~> 1.4', require: false
-
+  gem "capistrano-rails", "~> 1.4", require: false
+  gem 'capistrano3-unicorn'
 end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15', '< 4.0'
+  gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
 end
 
-group :production do
-  gem 'mysql2' # , '~> 0.3.18'
-
+group :production do 
+  gem 'mysql2' # , '~> 0.3.18' 
+  gem 'unicorn'
+  gem 'mailgun-ruby', '~>1.1.6'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
